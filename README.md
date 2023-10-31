@@ -9,6 +9,7 @@ composer require lotsofpixels/module-pricelist-section
 
 ## Usage
 Content of static block 'pricelist_block' is displayed on the page. The route is pricelist/customer/index/
+The value of the label can be set in the backend and will be displayed as label and page title.
 
 ## Contributing
 
@@ -20,4 +21,3 @@ to discuss what you would like to change.
 [MIT](https://choosealicense.com/licenses/mit/)
 
 
-https://img.shields.io/badge/any%20text-you%20like-blue

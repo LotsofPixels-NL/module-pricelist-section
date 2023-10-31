@@ -4,7 +4,7 @@
     <body>
         <referenceBlock name="page.main.title">
             <action method="setPageTitle">
-                <argument translate="true" name="title" xsi:type="string">Prijslijsten</argument>
+                <argument name="title" xsi:type="helper" helper="Lotsofpixels\PricelistSection\Helper\Data::getLabel" />
             </action>
         </referenceBlock>
         <referenceContainer name="content">
