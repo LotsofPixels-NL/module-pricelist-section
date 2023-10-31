@@ -1,6 +1,6 @@
 {
   "name": "lotsofpixels/module-pricelist-section",
-  "description": "Magento 2 Pixelpage",
+  "description": "Magento 2 Customer Pricelist Section",
   "require": {
   },
   "type": "magento2-module",
