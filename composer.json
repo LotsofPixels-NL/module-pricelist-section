@@ -1,0 +1,25 @@
+{
+  "name": "lotsofpixels/module-pricelist-section",
+  "description": "Magento 2 Pixelpage",
+  "require": {
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "LotsofPixel.io",
+      "email": "support@lotsofpixels.io",
+      "homepage": "https://www.lotsofpixels.io",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Lotsofpixels\\PricelistSection\\": ""
+    }
+  }
+}
