@@ -1,10 +1,10 @@
 {
   "name": "lotsofpixels/module-pricelist-section",
-  "description": "Magento 2 Customer Pricelist Section",
+  "description": "Magento 2 Pixelpage",
   "require": {
   },
   "type": "magento2-module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "proprietary",
   "authors": [
     {

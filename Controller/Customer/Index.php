@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Lotsofpixels\PricelistSection\Controller\Customer;
 
-use Magento\Framework\App\ActionInterface;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Customer\Model\Session;
+use Magento\Framework\Controller\Result\RedirectFactory;
 
 /**
  *
@@ -20,18 +22,43 @@ class Index implements HttpGetActionInterface
     private $pageFactory;
 
     /**
-     * @var RequestInterface
+     * @var
      */
-    private $request;
 
+    /**
+     * @var ResultFactory
+     */
+    protected $resultRedirect;
+    /**
+     * @var Session
+     */
+    protected $customerSession;
     /**
      * @param PageFactory $pageFactory
      * @param RequestInterface $request
      */
-    public function __construct(PageFactory $pageFactory, RequestInterface $request)
+
+
+    protected $resultRedirectFactory;
+
+    /**
+     * @param PageFactory $pageFactory
+     * @param RequestInterface $request
+     * @param Session $customerSession
+     * @param ResultFactory $result
+     * @param RedirectFactory $resultRedirectFactory
+     */
+    public function __construct(PageFactory      $pageFactory,
+                                Session          $customerSession,
+                                ResultFactory    $result,
+                                RedirectFactory  $resultRedirectFactory
+    )
     {
         $this->pageFactory = $pageFactory;
-        $this->request = $request;
+        $this->resultRedirect = $result;
+        $this->customerSession = $customerSession;
+        $this->resultRedirectFactory = $resultRedirectFactory;
+
     }
 
     /**
@@ -39,9 +66,9 @@ class Index implements HttpGetActionInterface
      */
     public function execute()
     {
-        // Get the params that were passed from our Router
-        // echo $firstParam = $this->request->getParam('first_param', null);
-
+if ($this->customerSession->isLoggedIn()) {
         return $this->pageFactory->create();
+        } else
+        {return $this->resultRedirectFactory->create()->setPath('customer/account/login/', ['_current' => true]);}
     }
 }
