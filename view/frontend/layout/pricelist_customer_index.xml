@@ -8,7 +8,12 @@
             </action>
         </referenceBlock>
         <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template" name="pricelist-section" template="Lotsofpixels_PricelistSection::pricelist.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="pricelist-section" template="Lotsofpixels_PricelistSection::pricelist.phtml">
+                <arguments>
+                    <argument name="pricelist-section_view_model"
+                              xsi:type="object">Lotsofpixels\PricelistSection\ViewModel\priceList</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>

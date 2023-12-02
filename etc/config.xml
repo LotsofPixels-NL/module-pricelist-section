@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+    <lotsofpixels>
+        <general>
+            <static_block>pricelist_block</static_block>
+            <label_field>Menu label</label_field>
+        </general>
+    </lotsofpixels>
+</default>
+</config>
