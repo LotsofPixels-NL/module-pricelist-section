@@ -4,71 +4,59 @@ declare(strict_types=1);
 
 namespace Lotsofpixels\PricelistSection\Controller\Customer;
 
-use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\App\RequestInterface;
+
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Customer\Model\Session;
 use Magento\Framework\Controller\Result\RedirectFactory;
 
 /**
  *
  */
-class Index implements HttpGetActionInterface
+class Index extends Action
 {
     /**
      * @var PageFactory
      */
-    private $pageFactory;
+    protected $resultPageFactory;
 
-    /**
-     * @var
-     */
-
-    /**
-     * @var ResultFactory
-     */
-    protected $resultRedirect;
     /**
      * @var Session
      */
-    protected $customerSession;
+    protected $session;
+
     /**
-     * @param PageFactory $pageFactory
-     * @param RequestInterface $request
+     * @var RedirectFactory
      */
-
-
     protected $resultRedirectFactory;
 
     /**
-     * @param PageFactory $pageFactory
-     * @param RequestInterface $request
-     * @param Session $customerSession
-     * @param ResultFactory $result
-     * @param RedirectFactory $resultRedirectFactory
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
      */
-    public function __construct(PageFactory      $pageFactory,
-                                Session          $customerSession,
-                                ResultFactory    $result,
-                                RedirectFactory  $resultRedirectFactory
-    )
-    {
-        $this->pageFactory = $pageFactory;
-        $this->resultRedirect = $result;
-        $this->customerSession = $customerSession;
+    public function __construct(
+        Context $context,
+        PageFactory $resultPageFactory,
+        Session $session,
+        RedirectFactory $resultRedirectFactory
+    ) {
+        $this->resultPageFactory = $resultPageFactory;
+        $this->session = $session;
         $this->resultRedirectFactory = $resultRedirectFactory;
-
+        parent::__construct($context);
     }
 
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
+     * @inheritDoc
      */
     public function execute()
     {
-if ($this->customerSession->isLoggedIn()) {
-        return $this->pageFactory->create();
-        } else
-        {return $this->resultRedirectFactory->create()->setPath('customer/account/login/', ['_current' => true]);}
+        if (!$this->session->isLoggedIn()) {
+            return $this->resultRedirectFactory->create()->setPath('customer/account/login');
+        }
+
+        return $this->resultPageFactory->create();
     }
+
 }
