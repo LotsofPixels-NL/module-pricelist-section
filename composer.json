@@ -1,10 +1,10 @@
 {
   "name": "lotsofpixels/module-pricelist-section",
-  "description": "Magento 2 Pricelist section",
+  "description": "Magento 2 Pricelist page in My account section",
   "require": {
   },
   "type": "magento2-module",
-  "version": "2.0.0",
+  "version": "1.0.5",
   "license": "proprietary",
   "authors": [
     {
