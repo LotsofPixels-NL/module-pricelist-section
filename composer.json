@@ -1,16 +1,16 @@
 {
   "name": "lotsofpixels/module-pricelist-section",
   "description": "Magento 2 Pricelist page in My account section",
-  "require": {
+  "require": {"php": "^8.0.0|^8.1.0|8.2.0"
   },
   "type": "magento2-module",
-  "version": "1.0.5",
+  "version": "2.0.1",
   "license": "proprietary",
   "authors": [
     {
       "name": "LotsofPixel.io",
       "email": "support@lotsofpixels.io",
-      "homepage": "https://www.lotsofpixels.io",
+      "homepage": "https://github.com/LotsofPixels-NL/module-pricelist-section",
       "role": "Technical Support"
     }
   ],
