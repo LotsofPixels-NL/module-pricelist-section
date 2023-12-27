@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<update handle="customer_account"/>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument name="title" xsi:type="helper" helper="Lotsofpixels\PricelistSection\Helper\Data::getLabel" />
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="pricelist-section-invoices" template="Lotsofpixels_PricelistSection::invoices.phtml">
+                <arguments>
+                    <argument name="pricelist-section_view_model"
+                              xsi:type="object">Lotsofpixels\PricelistSection\ViewModel\invoiceList</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,7 +1,8 @@
 <?php
-/** @var \Lotsofpixels\PricelistSection\ViewModel\priceList $ViewModel */
-$viewModel = $block->getData('pricelist-section_view_model');
+
+echo $this->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('pricelist_block')
+    ->toHtml();
 ?>
-<?php
-echo $this->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($viewModel->getStaticblockValue())->toHtml(); ?>
 

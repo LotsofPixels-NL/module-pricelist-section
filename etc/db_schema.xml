@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="lotsofpixels_erp_invoices" resource="default" engine="innodb" comment="ERP Orders">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="date" name="invoice_date" comment="Order date"/>
+        <column xsi:type="varchar" name="customer_id" nullable="false" length="64" comment="Customer Id"/>
+        <column xsi:type="varchar" name="invoice_id" nullable="false" length="64" comment="Invoice Id"/>
+        <column xsi:type="varchar" name="description" nullable="false" length="64" comment="Description"/>
+        <column xsi:type="decimal" name="base_invoice_amount" scale="4" precision="20" unsigned="false" nullable="true" comment="Base Invoice Amount"/>
+        <column xsi:type="varchar" name="status" nullable="true" length="32" comment="Status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+            <column name="customer_id"/>
+        </constraint>
+    </table>
+</schema>
